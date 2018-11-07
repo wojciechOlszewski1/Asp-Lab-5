@@ -38,6 +38,18 @@ namespace Lab5.Controllers
             var id = await _customerService.CreateAsync(customer.Name, customer.Surname, customer.Year);
             return Created($"api/Customer/{id}", null);
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody]CreateCustomerDto customer)
+        {
+            await _customerService.UpdateAsync(id, customer.Name, customer.Surname, customer.Year);
+            return NoContent();
+        }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _customerService.DeleteAsync(id);
+            return NoContent();
+        }
     }
 }

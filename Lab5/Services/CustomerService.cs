@@ -64,6 +64,7 @@ namespace Lab5.Services
             customer.Name = name;
             customer.Surname = surname;
             customer.Year = year;
+            await _db.SaveChangesAsync();
         }
     }
 }
