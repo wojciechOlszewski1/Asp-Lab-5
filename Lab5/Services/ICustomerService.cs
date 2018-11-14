@@ -11,8 +11,7 @@ namespace Lab5.Services
         Task<CustomerDto> GetAsync(int id);
         Task<IEnumerable<CustomerDto>> BrowseAsync(string name = null);
         Task<int> CreateAsync(string name, string surname, int year);
-        Task UpdateAsync(int id, string name, string surname, int year);
-        Task DeleteAsync(int id);
+        
 
     }
 }

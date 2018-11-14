@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Lab5.Repository;
 using Lab5.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,8 +26,10 @@ namespace Lab5
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().AddJsonOptions(x=>x.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented);
-            services.AddScoped<ICustomerService, CustomerService>();    
-           
+            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IRepository, Repository.Repository>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
